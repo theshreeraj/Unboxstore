@@ -1,19 +1,20 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: [
-        "./app/**/*.{js,ts,jsx,tsx}",
-        "./pages/**/*.{js,ts,jsx,tsx}",
-        "./components/**/*.{js,ts,jsx,tsx}",
-
-        // Or if using `src` directory:
-        "./src/**/*.{js,ts,jsx,tsx}",
-    ],
-    theme: {
-        fontFamily: {
-            oswald: "Oswald, sans-serif",
-            urbanist: "Urbanist, sans-serif",
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      animation: {
+        ["infinite-slider"]: "infiniteSlider 20s linear infinite",
+      },
+      keyframes: {
+        infiniteSlider: {
+          "0%": { transform: "translateX(0)" },
+          "100%": {
+            transform: "translateX(calc(-250px * 5))",
+          },
         },
-        extend: {},
+      },
     },
-    plugins: [],
+  },
+  plugins: [],
 };
